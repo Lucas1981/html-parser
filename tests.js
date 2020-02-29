@@ -1,6 +1,7 @@
 const fs = require('fs').promises;
 const { isEscaped, extractTagName } = require('./helper-functions.js');
 const analyseTag = require('./analyse-tag.js');
+const { reconstructFromContent } = require('./reconstruct-html.js');
 const {
   scanForMatchingTag,
   parseHtmlFromFile
@@ -34,4 +35,9 @@ const {
   console.log('\nTest 7: Parse an entire document');
   const result = await parseHtmlFromFile('./index.html');
   console.log(JSON.stringify(result,null,2));
+
+  console.log('\nTest 8: Reconstruct the html');
+  const reconstruction = reconstructFromContent(result);
+  console.log(reconstruction);
+  await fs.writeFile('./reconstruction.html', reconstruction, 'utf8');
 })();

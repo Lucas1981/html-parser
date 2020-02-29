@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Html parser test file
+		</title>
+		<meta
+			charset="utf-8"
+		/>
+	</head>
+	<body>
+		<!--
+		    Let's make things interesting by adding some comments
+		    So are we ignoring any <b>html</b> that might show up here?
+		  -->
+		<div
+			data-my-attr="Let's mess things up with spaces"
+		>
+			<input
+				type="checkbox"
+				checked
+			/>
+			<span>
+				I am just a span
+			</span>
+			<p
+				data-first="first thing"
+				data-second="         second thing           third thing       "
+			>
+				I am a paragraph
+			</p>
+			<p>
+				I am also a paragraph
+			</p>
+			<div>
+				Would this work
+				<p>
+					With more than one
+				</p>
+				Element?
+				<p>
+					Or not?
+				</p>
+			</div>
+			<div
+				data-attr="true"
+			>
+				I am just some
+				<i>
+					random
+				</i>
+				nested content
+			</div>
+			<!-- How do we handle a tag with no content? -->
+			<p>
+			</p>
+			<p>
+				Whatabout  really      weird        ..content?!
+			</p>
+			<div
+				my-attr="And what about some closing tags '>' showing up in attribute values?"
+			>
+			</div>
+			<!-- How about self-closing tags with no attributes? -->
+			<br/>
+			<!-- How about self-closing tags with spaces? -->
+			<hr/>
+			<!-- how about tags with spaces but no attributes? -->
+			<p>
+			</p>
+			<div
+				data-string="So what happens when we put some escaped \" in here?"
+			>
+				Would it still work?
+			</div>
+		</div>
+	</body>
+</html>
